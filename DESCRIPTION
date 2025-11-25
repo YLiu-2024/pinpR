@@ -1,0 +1,30 @@
+Package: pinpR
+Type: Package
+Title: Robust Nonparametric Prediction Intervals
+Version: 0.1.0
+Authors@R:
+    person("Your", "Name",
+           email = "your.email@example.com",
+           role = c("aut", "cre"),
+           comment = c(ORCID = "YOUR-ORCID-ID"))
+Description: Provides robust nonparametric prediction intervals for regression models.
+    This package implements several methods, including k-Nearest Neighbors (kNN)
+    and Kernel Density Estimation (KDE), to estimate the conditional
+    distribution of the response. A key feature is the inclusion of robust
+    fallback mechanisms that switch to a global linear model when local
+    estimates are deemed unreliable, ensuring interval stability. The package
+    also provides tools for evaluation and visualization.
+License: MIT + file LICENSE
+Encoding: UTF-8
+RoxygenNote: 7.3.3
+Imports:
+    ggplot2,
+    FNN,
+    stats,
+    graphics
+Suggests:
+    roxygen2,
+    testthat,
+    gridExtra,
+    knitr,
+    rmarkdown
