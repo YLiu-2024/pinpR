@@ -177,6 +177,5 @@ plot_compare(fit_knn, fit_kde, data = data_train, alpha = 0.1)
 # 4. Evaluate
 preds_knn <- predict_intervals(fit_knn, new_data = data_test, alpha = 0.1)
 eval_knn <- evaluate_pinp(data_test$y, preds_knn$lower, preds_knn$upper, alpha = 0.1)
-print(eval_knn)s_knn$lower, preds_knn$upper, alpha = 0.1)
 print(eval_knn)
 ```
