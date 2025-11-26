@@ -2,7 +2,7 @@
 % Please edit documentation in R/method_kde_eqt.R
 \name{kde_eqt_predict}
 \alias{kde_eqt_predict}
-\title{Predict with KDE Equal-Tailed Prediction Interval Model}
+\title{Predict with KDE Equal-Tailed Prediction Interval Model (Product Kernel)}
 \usage{
 kde_eqt_predict(
   model,
@@ -16,26 +16,22 @@ kde_eqt_predict(
 \arguments{
 \item{model}{A fitted model object from `kde_eqt_fit`.}
 
-\item{X_new}{A matrix or data frame of new predictor data.}
+\item{X_new}{A data frame of new predictor data.}
 
 \item{alpha}{The significance level for the prediction intervals.}
 
-\item{fallback_model}{A fitted linear model object to be used for fallback.}
+\item{fallback_model}{A fitted linear model object for fallback.}
 
-\item{use_fallback}{A logical value indicating whether to enable fallback.}
+\item{use_fallback}{A logical value to enable/disable fallback.}
 
-\item{min_eff_n}{The minimum effective sample size required for a local estimate.}
+\item{min_eff_n}{The minimum effective sample size for a local estimate.}
 }
 \value{
-A list containing:
-  \item{L}{A numeric vector of lower prediction bounds.}
-  \item{U}{A numeric vector of upper prediction bounds.}
-  \item{info}{A data frame with diagnostic information.}
+A list containing the lower and upper bounds and diagnostic info.
 }
 \description{
-This internal function generates predictions using the fitted KDE model.
-It estimates the conditional density of Y|X for each new data point,
-performs a diagnostic check on the effective sample size, and computes
-equal-tailed prediction intervals either from the local density or by
-falling back to a global linear model.
+This internal function generates predictions using the fitted KDE model,
+supporting multi-dimensional `X` via a product kernel. It performs a
+diagnostic check on the effective sample size and can fall back to a
+global linear model.
 }

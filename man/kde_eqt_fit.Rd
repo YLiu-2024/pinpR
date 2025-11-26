@@ -11,23 +11,20 @@ kde_eqt_fit(X, y, bw_x = NULL, bw_y = NULL, ...)
 
 \item{y}{A numeric vector of the response variable from the training data.}
 
-\item{bw_x}{A numeric vector or scalar specifying the bandwidth(s) for the
-predictor variables. If `NULL`, bandwidth selection will be performed later.}
+\item{bw_x}{A numeric vector specifying the bandwidth for each predictor
+variable. If `NULL`, bandwidths are calculated for each column of `X`
+using `stats::bw.nrd0`.}
 
 \item{bw_y}{A numeric scalar specifying the bandwidth for the response
-variable. If `NULL`, bandwidth selection will be performed later.}
+variable. If `NULL`, it is calculated using `stats::bw.nrd0`.}
 
 \item{...}{Additional arguments (not used in this method).}
 }
 \value{
-A list representing the fitted KDE model, containing:
-  \item{X_train}{The training predictor variables.}
-  \item{y_train}{The training response variable.}
-  \item{bw_x}{The bandwidth(s) for X, or `NULL` if not specified.}
-  \item{bw_y}{The bandwidth for y, or `NULL` if not specified.}
+A list representing the fitted KDE model.
 }
 \description{
 This internal function "fits" a KDE-based model for generating equal-tailed
-prediction intervals. For KDE, fitting primarily involves storing the
-training data and bandwidth parameters.
+prediction intervals. It handles multi-dimensional predictor variables by
+preparing to use a product kernel.
 }
